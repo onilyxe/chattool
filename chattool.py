@@ -104,25 +104,25 @@ async def kick_user(message: Message):
         else:
             await message.answer(f"Чортила, ти вже адмін")
 
-# Обробник команди /bluetext
-@router.message(Command(commands=['bluetext']))
-async def bluetext_command_handler(message: Message):
-    await message.answer("/BLUE /TEXT\n/MUST /CLICK\n/I /AM /A /STUPID /ANIMAL /THAT /ISS /ATTRACTED /TO /COLORS")
+# # Обробник команди /bluetext
+# @router.message(Command(commands=['bluetext']))
+# async def bluetext_command_handler(message: Message):
+#     await message.answer("/BLUE /TEXT\n/MUST /CLICK\n/I /AM /A /STUPID /ANIMAL /THAT /ISS /ATTRACTED /TO /COLORS")
 
-kick_words = [
-    "слава россии", "/kekmi", "/blue", "/text", "/must", "/click", "/i", "/am", "/stupid", "/animal", "/that", "/iss", "/attracted", "/colors"
-]
+# kick_words = [
+#     "слава россии", "/kekmi", "/blue", "/text", "/must", "/click", "/i", "/am", "/stupid", "/animal", "/that", "/iss", "/attracted", "/colors"
+# ]
 
-@router.message(lambda message: message.text is not None and any(word in message.text.lower() for word in kick_words))
-async def kick_words_handler(message: Message):
-    user_id = message.from_user.id
-    chat_id = message.chat.id
-    try:
-        await bot.ban_chat_member(chat_id, user_id)
-        await bot.unban_chat_member(chat_id, user_id)
-        await message.answer("🫵😂")
-    except TelegramBadRequest:
-        return
+# @router.message(lambda message: message.text is not None and any(word in message.text.lower() for word in kick_words))
+# async def kick_words_handler(message: Message):
+#     user_id = message.from_user.id
+#     chat_id = message.chat.id
+#     try:
+#         await bot.ban_chat_member(chat_id, user_id)
+#         await bot.unban_chat_member(chat_id, user_id)
+#         await message.answer("🫵😂")
+#     except TelegramBadRequest:
+#         return
 
 # Обробник команди /kb
 @router.message(Command(commands=['kb']))
